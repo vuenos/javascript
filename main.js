@@ -14,5 +14,7 @@ async function myAsyncFun() {
 }
 
 const result = myAsyncFun();
+const result2 = myPromiseFun();
 
 console.log(result);
+console.log(result2);
