@@ -8,8 +8,10 @@ const myPomiseFun = () => {
     //reject('myError!')
   });
 }
-const resolve = myPomiseFun();
-console.log(resolve);
+const resolve = myPomiseFun().catch(e => {
+  console.error(e);
+});
+
 
 // async await 예외처리
 const myAsyncFun = async () => {
@@ -18,3 +20,29 @@ const myAsyncFun = async () => {
 }
 const result = myAsyncFun();
 console.log(result);
+
+const resultErr = myAsyncFun().catch(e => {
+  console.error(e);
+});
+
+// await
+function wait(sec: number) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      //resolve('Promise Sec!!');
+      reject('Wait Error!')
+    }, sec * 1000)
+  });
+}
+
+const myAsyncWait = async () => {
+  console.log(new Date());
+  try {
+    await wait(3);
+  } catch (e) {
+    console.error(e);
+  }
+  //await wait(3);
+  console.log(new Date());
+}
+const waitResult = myAsyncWait();
