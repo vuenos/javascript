@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../index.ts"],
+  "sourcesContent": ["const s: string = \"hello world!\";\nconsole.log(s);\n\n// Promise\nconst myPomiseFun = () => {\n  return new Promise((resolve, reject) => {\n    resolve('Promise Done!');\n    //reject('myError!')\n  });\n}\nconst resolve = myPomiseFun();\nconsole.log(resolve);\n\n// async await \uC608\uC678\uCC98\uB9AC\nconst myAsyncFun = async () => {\n  return 'Done!'\n  //throw 'myAsyncError!'\n}\nconst result = myAsyncFun();\nconsole.log(result);"],
+  "mappings": "AAAA,MAAM,IAAY;AAClB,QAAQ,IAAI;AAGZ,MAAM,cAAc,MAAM;AACxB,SAAO,IAAI,QAAQ,CAAC,UAAS,WAAW;AACtC,aAAQ;AAAA;AAAA;AAIZ,MAAM,UAAU;AAChB,QAAQ,IAAI;AAGZ,MAAM,aAAa,YAAY;AAC7B,SAAO;AAAA;AAGT,MAAM,SAAS;AACf,QAAQ,IAAI;",
+  "names": []
+}
