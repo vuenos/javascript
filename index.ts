@@ -46,3 +46,20 @@ const myAsyncWait = async () => {
   console.log(new Date());
 }
 const waitResult = myAsyncWait();
+
+// interface
+
+interface userType {
+  name: string;
+  age: number;
+  readonly gender?: string;
+}
+
+const user: userType = {
+  name: 'jintaekim',
+  age: 47,
+  gender: 'male',
+}
+
+console.log(user.name);
+console.log(user.age);

@@ -33,4 +33,11 @@ const myAsyncWait = async () => {
   console.log(new Date());
 };
 const waitResult = myAsyncWait();
+const user = {
+  name: "jintaekim",
+  age: 47,
+  gender: "male"
+};
+console.log(user.name);
+console.log(user.age);
 //# sourceMappingURL=index.js.map
