@@ -48,7 +48,6 @@ const myAsyncWait = async () => {
 const waitResult = myAsyncWait();
 
 // interface
-
 interface userType {
   name: string;
   age: number;
@@ -63,3 +62,12 @@ const user: userType = {
 
 console.log(user.name);
 console.log(user.age);
+
+type myInfoType = {
+  [key: string] : string,
+}
+let jintae:myInfoType = {
+  name: 'jintae Kim',
+  gender: 'male'
+}
+console.log(jintae.name);

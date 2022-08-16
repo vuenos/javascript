@@ -40,4 +40,9 @@ const user = {
 };
 console.log(user.name);
 console.log(user.age);
+let jintae = {
+  name: "jintae Kim",
+  gender: "male"
+};
+console.log(jintae.name);
 //# sourceMappingURL=index.js.map
