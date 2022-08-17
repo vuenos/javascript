@@ -1,6 +1,10 @@
 const s: string = "hello world!";
 console.log(s);
 
+// git push 할 때 password 묻지 않게 하기
+// git config --global credential.helper store
+// 이 후 패스워드 입력하면 묻지 않음
+
 // Promise
 const myPomiseFun = () => {
   return new Promise((resolve, reject) => {
