@@ -81,4 +81,28 @@ console.log(jintae.gender);
 const newArray = [1,2,3,4,5,6];
 newArray.forEach((e) => {
   console.log(e);
-})
+});
+
+// Create Object
+const myCar = new Object();
+myCar.make = "Ford";
+myCar.model = "Mustang";
+myCar.year = 1969;
+
+let propertyName = 'make';
+myCar[propertyName] = 'Ford';
+
+propertyName = 'model';
+myCar[propertyName] = 'Mustang';
+
+function showProps(obj, objName) {
+  let result = '';
+  for (let i in obj) {
+    // obj.hasOwnProperty()를 사용해서 객체의 프로토타입 체인에 존재하지 않는 속성을 제외
+    if (obj.hasOwnProperty(i)) {
+      result += `${objName}.${i} = ${obj[i]}\n`;
+    }
+  }
+  console.log(':::RESULT:::\n',result);
+}
+showProps(myCar, 'myCar');

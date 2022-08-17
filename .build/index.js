@@ -50,4 +50,23 @@ const newArray = [1, 2, 3, 4, 5, 6];
 newArray.forEach((e) => {
   console.log(e);
 });
+const myCar = new Object();
+myCar.make = "Ford";
+myCar.model = "Mustang";
+myCar.year = 1969;
+let propertyName = "make";
+myCar[propertyName] = "Ford";
+propertyName = "model";
+myCar[propertyName] = "Mustang";
+function showProps(obj, objName) {
+  let result2 = "";
+  for (let i in obj) {
+    if (obj.hasOwnProperty(i)) {
+      result2 += `${objName}.${i} = ${obj[i]}
+`;
+    }
+  }
+  console.log(":::RESULT:::\n", result2);
+}
+showProps(myCar, "myCar");
 //# sourceMappingURL=index.js.map
