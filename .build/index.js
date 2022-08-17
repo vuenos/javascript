@@ -45,4 +45,5 @@ let jintae = {
   gender: "male"
 };
 console.log(jintae.name);
+console.log(jintae.gender);
 //# sourceMappingURL=index.js.map

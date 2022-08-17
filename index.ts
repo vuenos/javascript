@@ -71,3 +71,4 @@ let jintae:myInfoType = {
   gender: 'male'
 }
 console.log(jintae.name);
+console.log(jintae.gender);
