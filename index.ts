@@ -30,7 +30,7 @@ function wait(sec: number) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       //resolve('Promise Sec!!');
-      reject('Wait Error!')
+      reject('Async::: Wait Error!')
     }, sec * 1000)
   });
 }
@@ -43,7 +43,7 @@ const myAsyncWait = async () => {
     console.error(e);
   }
   //await wait(3);
-  console.log(new Date());
+  console.log('Async:::', new Date());
 }
 const waitResult = myAsyncWait();
 
@@ -72,3 +72,9 @@ let jintae:myInfoType = {
 }
 console.log(jintae.name);
 console.log(jintae.gender);
+
+// Array
+const newArray = [1,2,3,4,5,6];
+newArray.forEach((e) => {
+  console.log(e);
+})

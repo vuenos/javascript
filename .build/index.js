@@ -19,7 +19,7 @@ const resultErr = myAsyncFun().catch((e) => {
 function wait(sec) {
   return new Promise((resolve2, reject) => {
     setTimeout(() => {
-      reject("Wait Error!");
+      reject("Async::: Wait Error!");
     }, sec * 1e3);
   });
 }
@@ -30,7 +30,7 @@ const myAsyncWait = async () => {
   } catch (e) {
     console.error(e);
   }
-  console.log(new Date());
+  console.log("Async:::", new Date());
 };
 const waitResult = myAsyncWait();
 const user = {
@@ -46,4 +46,8 @@ let jintae = {
 };
 console.log(jintae.name);
 console.log(jintae.gender);
+const newArray = [1, 2, 3, 4, 5, 6];
+newArray.forEach((e) => {
+  console.log(e);
+});
 //# sourceMappingURL=index.js.map
