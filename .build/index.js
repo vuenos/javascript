@@ -50,6 +50,9 @@ const newArray = [1, 2, 3, 4, 5, 6];
 newArray.forEach((e) => {
   console.log(e);
 });
+for (let item of newArray) {
+  console.log("ITEM:::", item);
+}
 const myCar = new Object();
 myCar.make = "Ford";
 myCar.model = "Mustang";

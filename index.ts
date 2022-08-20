@@ -83,6 +83,10 @@ newArray.forEach((e) => {
   console.log(e);
 });
 
+for (let item of newArray) {
+  console.log("ITEM:::", item);
+}
+
 // Create Object
 const myCar = new Object();
 myCar.make = "Ford";
