@@ -110,3 +110,12 @@ function showProps(obj, objName) {
   console.log(':::RESULT:::\n',result);
 }
 showProps(myCar, 'myCar');
+
+
+// 
+const videoArray = ['book1', 'book2', 'book3', 'book4'];
+const viewArray = ['book1', 'book2', 'book3', 'book4'];
+
+for (let e in videoArray) {
+  console.log(e)
+}
