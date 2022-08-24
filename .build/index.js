@@ -74,7 +74,10 @@ function showProps(obj, objName) {
 showProps(myCar, "myCar");
 const videoArray = ["book1", "book2", "book3", "book4"];
 const viewArray = ["book1", "book2", "book3", "book4"];
-for (let e in videoArray) {
-  console.log(e);
+for (let e of videoArray) {
+  console.log("videos", e);
+}
+for (let e in viewArray) {
+  console.log("views", e);
 }
 //# sourceMappingURL=index.js.map
