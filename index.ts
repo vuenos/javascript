@@ -122,3 +122,14 @@ for (let e of videoArray) {
 for (let e in viewArray) {
   console.log("views", e)
 }
+
+//Objects are not the best approach for a map data structures in Javascript
+//const hasPaid = {
+//  '123': true,
+//  'abc': false,
+//}
+const hasPaid = new Map(); 
+  hasPaid.set('123', true);
+  hasPaid.set('abc', false);
+
+console.log(hasPaid.get('123'))

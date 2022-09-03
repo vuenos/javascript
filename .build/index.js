@@ -80,4 +80,8 @@ for (let e of videoArray) {
 for (let e in viewArray) {
   console.log("views", e);
 }
+const hasPaid = new Map();
+hasPaid.set("123", true);
+hasPaid.set("abc", false);
+console.log(hasPaid.get("123"));
 //# sourceMappingURL=index.js.map
