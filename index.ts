@@ -1,5 +1,5 @@
-const s: string = "hello world!";
-console.log(s);
+const hello: string = "hello world!";
+console.log(hello);
 
 // git push 할 때 password 묻지 않게 하기
 // git config --global credential.helper store
@@ -88,18 +88,18 @@ for (let item of newArray) {
 }
 
 // Create Object
-const myCar = new Object();
+const myCar: any = new Object();
 myCar.make = "Ford";
 myCar.model = "Mustang";
 myCar.year = 1969;
 
-let propertyName = 'make';
+let propertyName: string = 'make';
 myCar[propertyName] = 'Ford';
 
 propertyName = 'model';
 myCar[propertyName] = 'Mustang';
 
-function showProps(obj, objName) {
+function showProps(obj: any, objName: string) {
   let result = '';
   for (let i in obj) {
     // obj.hasOwnProperty()를 사용해서 객체의 프로토타입 체인에 존재하지 않는 속성을 제외
