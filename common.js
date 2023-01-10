@@ -66,3 +66,12 @@ if (!logOut) {
 logOut || console.log('%c 왼쪽 조건이 false 이라면 오른쪽 코드를 실행 : Logical OR syntax', 'color: red');
 
 // Ternary Operator
+let courses = ['국어', '수학', '영어'];
+
+(courses.length === 0)
+ ? console.log('선택할 수 있는 수업이 없습니다.')
+ : console.log(`현재 ${courses.length}개의 수업이 선택가능함`)
+
+for (let i of courses) {
+  console.log(i)
+}
