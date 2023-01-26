@@ -63,7 +63,7 @@ logIn && console.log('%c 왼쪽 조건이 true 이라면 오른쪽 코드를 실
 if (!logOut) {
   console.log('%c You are logout : if syntax', 'color: red');
 }
-logOut || console.log('%c 왼쪽 조건이 false 이라면 오른쪽 코드를 실행 : Logical OR syntax', 'color: red');
+logOut || console.log('%c 왼쪽 조건이 false 이라면 오른쪽 코드를 실행 : Logical OR || syntax', 'color: red');
 
 // Ternary Operator
 let courses = ['국어', '수학', '영어'];
