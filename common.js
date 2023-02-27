@@ -75,3 +75,23 @@ let courses = ['국어', '수학', '영어'];
 for (let i of courses) {
   console.log(i)
 }
+
+// window 객체
+// var 키워드로 전역변수를 선언하면 window 객체의 전역변수를 등록된다.
+// const, let 키워드로 전역변수를 선억하면 window 객체로 등록되지 않는다.
+var isWindow1 = "I am global var on Window Obj";
+let isWindow2 = "I am global variable";
+console.log(`window 객체 전역변수 'var' 키워드 사용 : ${window.isWindow1}`);
+console.log(`전역변수 'let or const' 키워드 사용 : ${isWindow2}`);
+
+// Javascript 실행 컨텍스트
+let myName = 'global variable'; // window 전역변수
+function wow(word) {
+  console.log(word + ' ' + myName);
+}
+function say() {
+  let myName = 'local variable';
+  console.log(myName);
+  wow('hello');
+}
+say();
