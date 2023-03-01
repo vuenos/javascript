@@ -1,5 +1,5 @@
 /**
- * Javascript Funtions
+ * Javascript Functions
  * Visualized
  */
 function calculateBill (meal, taxRate = 0.05) {
