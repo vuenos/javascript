@@ -91,7 +91,8 @@ function wow(word) {
 }
 function say() {
   let myName = 'local variable';
+  myName = 'local variable override'
   console.log(myName);
-  wow('hello');
+  wow('hello, ');
 }
 say();
