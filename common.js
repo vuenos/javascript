@@ -96,3 +96,73 @@ function say() {
   wow('hello, ');
 }
 say();
+
+// Prototype
+const student = {
+  name: 'Kim',
+  age: 22,
+};
+// student 에는 hasOwnProperty 메소드가 없지만 아래 구문은 동작한다.
+console.log(`student.hasOwnProperty('name') => `, student.hasOwnProperty('name')); // true
+console.dir(student);
+
+// student 객체는 __proto__ 프로퍼티로 자신의 부모 객체(프로토타입 객체)인 Object.prototype 을 카리킨다.
+console.log(`student.__proto__ === Object.prototype =>`, student.__proto__ === Object.prototype);
+
+function weapon(btn1, btn2) {
+  this.q = btn1;
+  this.w = btn2;
+}
+weapon.prototype.name = 'Stick'; // 상속받은 자식 변수에서 사용가능(원형, 유전자 조작)
+let skill1 = new weapon('Punch', 'Strike'); // skill1 에 weapon 을 상속해 줌
+let skill2 = new weapon('Strike', 'Punch'); // skill2 에 weapon 을 상속해 줌
+
+console.log(`나의 스킬1`, skill1);
+console.log(`나의 스킬2`, skill2);
+console.log(`Weapon 이름`, skill2.name);
+
+const animals1 = ['Monkey', 'Rabbit', 'Bear']; // animals1 과 animals2 는 동일함
+const animals2 = new Array('Monkey', 'Rabbit', 'Bear');
+animals1.sort(); // Array,prototype.sort, sort 함수가 내장되어 있다. (sort, length 등등)
+console.log(animals1, animals2);
+
+// Array 함수에 커스컴 함수를 추가한다.(유전자추가) => 모든 Array 에서 사용할 수 있는 함수
+Array.prototype.addItem = function () {
+  // undefined
+}
+console.log(animals2.addItem())
+
+/**
+ * class MySkill
+ * @param punch
+ * @param kick
+ */
+class MySkill {
+  constructor(key1, key2) {
+    this.punch = key1;
+    this.kick = key2;
+  }
+
+  get skillInfo() {
+    return `Punch: ${this.punch}, Kick: ${this.kick}`
+  }
+
+  introduce() {
+    return `My Skill key1 is ${this.punch}`
+  }
+}
+
+const Combo = new MySkill('Punch', 'Kick'); // MySkill 을 상속받았다.
+console.log(`constructor 사용 => `, Combo.punch);
+console.log(`스킬정보 (get 사용): `, Combo.skillInfo);
+console.log(`스킬 Key1 정보 (introduce 사용): `, Combo.introduce());
+
+// class MySkill 상속
+class SkillExp extends MySkill {
+  constructor(key1, key2) {
+    super(key1, key2);
+  }
+}
+
+const skillExp = new SkillExp( 88, 55)
+console.log(`스킬 경험치: `, skillExp);
