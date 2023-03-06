@@ -166,3 +166,40 @@ class SkillExp extends MySkill {
 
 const skillExp = new SkillExp( 88, 55)
 console.log(`스킬 경험치: `, skillExp);
+
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  // 접근자(getter) get: get 구문은 객체의 속성 접근 시 호출할 함수를 바인딩 한다.
+  get getPerson() {
+    return `get => Name: ${this.name}, Age: ${this.age}`;
+  }
+
+  introduce () {
+    return `introduce() => Name: ${this.name}, Age: ${this.age}`
+  }
+}
+
+const person = new Person('Jintae', 23); // class Person 을 상속 받는다.
+console.log(person); // Person {name: 'Jintae', age: 23}
+console.log(person.getPerson); // getPerson 함수를 바인딩(연결) 한다. get => Name: Jintae, Age: 23
+console.log(person.introduce()); // introduce 함수를 실행 한다.
+
+// Person class 상속
+class Developer extends Person {
+  constructor(name, age) {
+    super(name, age);
+  }
+
+  work() {
+    return `${this.name} is working javaScript`
+  }
+}
+
+const developer = new Developer('Jiwoo', 8);
+console.log(developer); // Developer {name: 'Jiwoo', ,age: 8}
+console.log(developer.getPerson); // get => Name: Jiwoo, Age: 8
+console.log(developer.work()); //
