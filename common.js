@@ -203,3 +203,27 @@ const developer = new Developer('Jiwoo', 8);
 console.log(developer); // Developer {name: 'Jiwoo', ,age: 8}
 console.log(developer.getPerson); // get => Name: Jiwoo, Age: 8
 console.log(developer.work()); //
+
+/**
+ * scope chain, closure
+ * scope 는 함수
+ */
+let c = 'C'; // 전연변수
+function outer() {
+  let a = 1;
+  let b = 'B';
+  console.log('outer a: ', a);
+
+  function inner() {
+    let a = 2;
+    console.log('inner a: ', a); // 가까운 부모 scope 부터 a 를 찾는다
+    console.log('outer b: ', b); // 가까운 부모 scope 부터 b 를 찾는다
+    console.log('global c: ', c); // 가까운 부모 scope 부터 b 를 찾는다
+  }
+  // inner();
+  return inner;
+}
+// outer();
+
+const isClosure = outer(); // outer 의 scope chain 을 isClosure 에 할당
+isClosure(); // closure, 생성한 시점의 scope chain 을 가지고 있다.
