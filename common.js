@@ -342,5 +342,5 @@ class Calculator {
 const addCalculator = new Calculator('+');
 console.log(addCalculator.calculate(1, 2));
 
-const subCalculrator = new Calculator('-');
-console.log(subCalculrator.calculate(6, 4));
+const subCalculator = new Calculator('-');
+console.log(subCalculator.calculate(6, 4));
