@@ -132,6 +132,33 @@ Array.prototype.addItem = function () {
 }
 console.log(animals2.addItem())
 
+
+
+/**
+ * scope chain, closure
+ * scope 는 함수
+ */
+let c = 'C'; // 전연변수
+function outer() {
+  let a = 1;
+  let b = 'B';
+  console.log('outer a: ', a);
+
+  function inner() {
+    let a = 2;
+    console.log('inner a: ', a); // 가까운 부모 scope 부터 a 를 찾는다
+    console.log('outer b: ', b); // 가까운 부모 scope 부터 b 를 찾는다
+    console.log('global c: ', c); // 가까운 부모 scope 부터 b 를 찾는다
+  }
+  // inner();
+  return inner;
+}
+// outer();
+
+const isClosure = outer(); // outer 의 scope chain 을 isClosure 에 할당
+isClosure(); // closure, 생성한 시점의 scope chain 을 가지고 있다.
+
+
 /**
  * class MySkill
  * @param punch
@@ -167,63 +194,153 @@ class SkillExp extends MySkill {
 const skillExp = new SkillExp( 88, 55)
 console.log(`스킬 경험치: `, skillExp);
 
+// class Person {
+//   constructor(name, age) {
+//     this.name = name;
+//     this.age = age;
+//   }
+//
+//   // 접근자(getter) get: get 구문은 객체의 속성 접근 시 호출할 함수를 바인딩 한다.
+//   get getPerson() {
+//     return `get => Name: ${this.name}, Age: ${this.age}`;
+//   }
+//
+//   introduce () {
+//     return `introduce() => Name: ${this.name}, Age: ${this.age}`
+//   }
+// }
+//
+// const person = new Person('Jintae', 23); // class Person 을 상속 받는다.
+// console.log(person); // Person {name: 'Jintae', age: 23}
+// console.log(person.getPerson); // getPerson 함수를 바인딩(연결) 한다. get => Name: Jintae, Age: 23
+// console.log(person.introduce()); // introduce 함수를 실행 한다.
+
+// // Person class 상속
+// class Developer extends Person {
+//   constructor(name, age) {
+//     super(name, age);
+//   }
+//
+//   work() {
+//     return `${this.name} is working javaScript`
+//   }
+// }
+
+// const developer = new Developer('Jiwoo', 8);
+// console.log(developer); // Developer {name: 'Jiwoo', ,age: 8}
+// console.log(developer.getPerson); // get => Name: Jiwoo, Age: 8
+// console.log(developer.work()); //
+
+
+// parent
 class Person {
-  constructor(name, age) {
-    this.name = name;
-    this.age = age;
+  constructor(info) {
+    this.name = info.name;
+    this.grade = info.grade;
+  }
+  getPersonInfo () {
+    return `name: ${this.name}, grade: ${this.grade}`
   }
 
-  // 접근자(getter) get: get 구문은 객체의 속성 접근 시 호출할 함수를 바인딩 한다.
-  get getPerson() {
-    return `get => Name: ${this.name}, Age: ${this.age}`;
-  }
-
-  introduce () {
-    return `introduce() => Name: ${this.name}, Age: ${this.age}`
-  }
-}
-
-const person = new Person('Jintae', 23); // class Person 을 상속 받는다.
-console.log(person); // Person {name: 'Jintae', age: 23}
-console.log(person.getPerson); // getPerson 함수를 바인딩(연결) 한다. get => Name: Jintae, Age: 23
-console.log(person.introduce()); // introduce 함수를 실행 한다.
-
-// Person class 상속
-class Developer extends Person {
-  constructor(name, age) {
-    super(name, age);
-  }
-
-  work() {
-    return `${this.name} is working javaScript`
+  static personClass(name, age) {
+    if (age >= 40) {
+      return new Senior();
+    } else if (age < 30) {
+      return new Junior();
+    }
   }
 }
 
-const developer = new Developer('Jiwoo', 8);
-console.log(developer); // Developer {name: 'Jiwoo', ,age: 8}
-console.log(developer.getPerson); // get => Name: Jiwoo, Age: 8
-console.log(developer.work()); //
+// const Developer = new person(33); // person 상속
 
-/**
- * scope chain, closure
- * scope 는 함수
- */
-let c = 'C'; // 전연변수
-function outer() {
-  let a = 1;
-  let b = 'B';
-  console.log('outer a: ', a);
-
-  function inner() {
-    let a = 2;
-    console.log('inner a: ', a); // 가까운 부모 scope 부터 a 를 찾는다
-    console.log('outer b: ', b); // 가까운 부모 scope 부터 b 를 찾는다
-    console.log('global c: ', c); // 가까운 부모 scope 부터 b 를 찾는다
+class Senior extends Person {
+  constructor(name) {
+    super({name: name, grade: '당신은 시니어 입니다.'});
   }
-  // inner();
-  return inner;
 }
-// outer();
 
-const isClosure = outer(); // outer 의 scope chain 을 isClosure 에 할당
-isClosure(); // closure, 생성한 시점의 scope chain 을 가지고 있다.
+
+// const developer = new Developer('Jiwoo', 8);
+// console.log(developer); // Developer {name: 'Jiwoo', ,age: 8}
+// console.log(developer.getPerson); // get => Name: Jiwoo, Age: 8
+// console.log(developer.work()); //
+
+
+class Junior extends Person {
+  constructor(name) {
+    super({name: name, grade: '당신은 주니어 입니다.'});
+  }
+}
+
+const jintae = Person.personClass('Jintae', 44)
+const jiwoo = Person.personClass('Jiwoo', 8)
+
+console.log(jintae, jiwoo);
+
+// // person class 상속
+// class Developer extends Senior {
+//   constructor(name, age) {
+//     super(name, age)
+//   }
+// }
+
+// const jiwoo = new Junior('Jiwoo','8');
+// const jintae = new Senior('Jintae','40');
+//
+// console.log(jiwoo); // name: ‘Jiwoo’, age: 8
+// console.log(jintae); // name: ‘Jiwoo’, age: 8
+
+
+class Car{
+  constructor(info){
+    this.name = info.name;
+    this.price = info.price;
+  }
+  getInfo(){
+    return this.name+"의 가격은 "+this.price+" 입니다.";
+  }
+  static factory(name){
+    if(name === "Avante"){
+      return new Avante();
+    }else if(name === "Sonata"){
+      return new Sonata();
+    }
+  }
+}
+class Sonata extends Car{
+  constructor(){
+    super({name: "쏘나타", price: "2,386 ~ 3,367만원"});
+  }
+}
+class Avante extends Car{
+  constructor(){
+    super({name: "아반테", price: "1,570 ~ 2,453만원"});
+  }
+}
+const avante = Car.factory("Avante");
+const sonata = Car.factory("Sonata");
+console.log(avante, sonata);
+
+
+
+class Calculator {
+  constructor(operator) {
+    if (operator === '+') {
+      this.calculate = function(a, b) {
+        return a + b;
+      };
+    } else if (operator === '-') {
+      this.calculate = function(a, b) {
+        return a - b;
+      };
+    } else {
+      return null;
+    }
+  }
+}
+
+const addCalculator = new Calculator('+');
+console.log(addCalculator.calculate(1, 2));
+
+const subCalculrator = new Calculator('-');
+console.log(subCalculrator.calculate(6, 4));
