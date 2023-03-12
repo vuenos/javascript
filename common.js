@@ -232,63 +232,44 @@ console.log(`스킬 경험치: `, skillExp);
 // console.log(developer.work()); //
 
 
-// parent
 class Person {
-  constructor(info) {
-    this.name = info.name;
+  constructor( info) {
     this.grade = info.grade;
   }
-  getPersonInfo () {
-    return `name: ${this.name}, grade: ${this.grade}`
+  get getPersonInfo () {
+    return `grade: ${this.grade}`
   }
 
-  static personClass(name, age) {
-    if (age >= 40) {
+  static personClass(age) {
+    if (age >= 35) {
       return new Senior();
-    } else if (age < 30) {
+    } else {
       return new Junior();
     }
   }
 }
 
-// const Developer = new person(33); // person 상속
-
 class Senior extends Person {
-  constructor(name) {
-    super({name: name, grade: '당신은 시니어 입니다.'});
+  constructor() {
+    super({grade: '당신은 시니어 입니다.'});
   }
 }
-
-
-// const developer = new Developer('Jiwoo', 8);
-// console.log(developer); // Developer {name: 'Jiwoo', ,age: 8}
-// console.log(developer.getPerson); // get => Name: Jiwoo, Age: 8
-// console.log(developer.work()); //
-
 
 class Junior extends Person {
-  constructor(name) {
-    super({name: name, grade: '당신은 주니어 입니다.'});
+  constructor() {
+    super({grade: '당신은 주니어 입니다.'});
   }
 }
 
-const jintae = Person.personClass('Jintae', 44)
-const jiwoo = Person.personClass('Jiwoo', 8)
+const jintae = Person.personClass(44)
+const jiwoo = Person.personClass(33)
 
 console.log(jintae, jiwoo);
 
-// // person class 상속
-// class Developer extends Senior {
-//   constructor(name, age) {
-//     super(name, age)
-//   }
-// }
 
-// const jiwoo = new Junior('Jiwoo','8');
-// const jintae = new Senior('Jintae','40');
-//
-// console.log(jiwoo); // name: ‘Jiwoo’, age: 8
-// console.log(jintae); // name: ‘Jiwoo’, age: 8
+// method pattern
+
+
 
 
 class Car{
@@ -326,21 +307,22 @@ console.log(avante, sonata);
 class Calculator {
   constructor(operator) {
     if (operator === '+') {
-      this.calculate = function(a, b) {
+      this.calculate = function (a, b) {
         return a + b;
       };
     } else if (operator === '-') {
-      this.calculate = function(a, b) {
+      this.calculate = function (a, b) {
         return a - b;
       };
     } else {
+      alert('제공하지 않는 기능입니다.')
       return null;
-    }
+    };
   }
 }
 
 const addCalculator = new Calculator('+');
-console.log(addCalculator.calculate(1, 2));
+console.log(addCalculator.calculate(5,5));
 
 const subCalculator = new Calculator('-');
-console.log(subCalculator.calculate(6, 4));
+console.log(subCalculator.calculate(8,4));
