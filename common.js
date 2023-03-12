@@ -326,3 +326,51 @@ console.log(addCalculator.calculate(5,5));
 
 const subCalculator = new Calculator('-');
 console.log(subCalculator.calculate(8,4));
+
+
+
+// Animal 인터페이스
+class Animal {
+  makeSound() {
+    throw new Error("makeSound 메소드가 구현되어 있지 않습니다.");
+  }
+}
+
+// Dog 클래스
+class Dog extends Animal {
+  makeSound() {
+    console.log("멍멍");
+  }
+}
+
+// Cat 클래스
+class Cat extends Animal {
+  makeSound() {
+    console.log("야옹");
+  }
+}
+
+// AnimalFactory 클래스
+class AnimalFactory {
+  createAnimal(type) {
+    switch (type) {
+      case "dog":
+        return new Dog();
+      case "cat":
+        return new Cat();
+      default:
+        throw new Error(`${type} 타입의 동물은 생성할 수 없습니다.`);
+    }
+  }
+}
+
+// 사용 예시
+const factory = new AnimalFactory();
+const dog = factory.createAnimal("dog");
+dog.makeSound(); // 멍멍
+
+const cat = factory.createAnimal("cat");
+cat.makeSound(); // 야옹
+
+const bird = factory.createAnimal("bird");
+bird.makeSound();
