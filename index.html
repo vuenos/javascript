@@ -10,7 +10,49 @@
   </head>
   <body>
     <main>
-        <h1>...console</h1>
+      <h1>Run JavaScript</h1>
+
+      <h2>이벤트 위임</h2>
+      <div class="buttons">
+        <button type="button" class="event-btn" data-value="1">
+          <span>111.</span>
+          <span>이벤트1</span>
+        </button>
+        <button type="button" class="event-btn" data-value="2">
+          <span>222</span>
+          <span>이벤트2</span>
+        </button>
+        <button type="button" class="event-btn" data-value="3">
+          <span>333</span>
+          <span>이벤트3</span>
+        </button>
+      </div>
     </main>
+
+    <script>
+      // const btns = document.querySelectorAll('.event-btn');
+      const btns = document.querySelector('.buttons');
+
+      function clickBtnHandler(event) {
+        // console.log(event.target.getAttribute('data-value'));
+        // console.log(event.target.dataset);
+        let elem = event.target;
+        while (!elem.classList.contains('event-btn')) {
+          elem = elem.parentNode;
+
+          if (elem.nodeName == 'BODY') {
+            elem = null;
+            return;
+          }
+        }
+        console.log(event.target.dataset.value);
+      }
+
+      btns.addEventListener('click', clickBtnHandler);
+
+      // for (let i = 0; i < btns.length; i++) {
+      //   btns[i].addEventListener('click', clickBtnHandler)
+      // }
+    </script>
   </body>
 </html>
