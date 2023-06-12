@@ -79,9 +79,9 @@ for (let i of courses) {
 // window 객체
 // var 키워드로 전역변수를 선언하면 window 객체의 전역변수를 등록된다.
 // const, let 키워드로 전역변수를 선억하면 window 객체로 등록되지 않는다.
-var isWindow1 = "I am global var on Window Obj";
+// var isWindow1 = "I am global var on Window Obj";
 let isWindow2 = "I am global variable";
-console.log(`window 객체 전역변수 'var' 키워드 사용 : ${window.isWindow1}`);
+// console.log(`window 객체 전역변수 'var' 키워드 사용 : ${window.isWindow1}`);
 console.log(`전역변수 'let or const' 키워드 사용 : ${isWindow2}`);
 
 // Javascript 실행 컨텍스트
@@ -318,6 +318,9 @@ class Calculator {
       alert('제공하지 않는 기능입니다.')
       return null;
     };
+      // return null;
+      throw new Error("아직 제공하지 않는 기능입니다.")
+    }
   }
 }
 
@@ -374,3 +377,46 @@ cat.makeSound(); // 야옹
 
 const bird = factory.createAnimal("bird");
 bird.makeSound();
+console.log(subCalculator.calculate(6, 4));
+
+
+const arr = ['apple', 'banana', 'cherry'];
+console.log("arr = ['apple', 'banana', 'cherry']");
+const arr2 = ['banana', 'apple', 'cherry']
+console.log("arr2 = ['banana', 'apple', 'cherry']")
+
+// Array.values()
+const iterator = arr.values();
+
+for (let value of iterator) {
+  console.log(value);
+}
+
+// Array.length()
+console.log(arr.length);
+
+// Array.reverse()
+arr.reverse();
+console.log("arr.reverse()", arr)
+
+// Array.sort()
+arr2.sort();
+console.log("arr2.sort()", arr2);
+
+// Array.fill()
+arr.fill('orange', 1, 2);
+console.log("arr.fill('orange', 1, 2)", arr);
+
+// Array.from()
+const obj = { 0: 'apple', 1: 'banana', 2: 'cherry', length: 6 }
+const arrFrom = Array.from(obj);
+console.log(arrFrom); // output: ['apple', 'banana', 'cherry']
+
+// Array.join()
+const str = arr.join(', ');
+console.log("arr.join(',')", str);
+
+// Array.copyWithin()
+let numbers = [1, 2, 3, 4, 5];
+numbers.copyWithin(2, 0, 2);
+console.log(numbers)
